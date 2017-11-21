@@ -8,7 +8,7 @@ var charsetRegex = /charset=["]*([^>"\s]+)/i
 
 module.exports = function ensureUTF8 (binaryBuffer, contentType) {
   var encoding = getEncoding(binaryBuffer, contentType)
-  
+
   return encoding === 'utf8'
     ? binaryBuffer.toString('utf8')
     : iconv.decode(binaryBuffer, encoding).replace(charsetRegex, 'utf-8')
@@ -20,5 +20,5 @@ function getEncoding (content, contentType) {
 
 function inferredEncoding(content) {
   var charset = jschardet.detect(content);
-  return charset && charset.encoding && charset.encoding
+  return charset && charset.encoding
 }
