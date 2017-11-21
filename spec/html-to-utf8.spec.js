@@ -15,13 +15,19 @@ describe('Encoding Converter', function() {
   it('guesses encoding even without meta tags or content type', function() {
     var input = loadExample('shiftjis.no.meta.html');
     var output = convert(input, 'text/html');
-    expect(output).to.contain('日本語');
+    expect(output).to.contain('次常用國字標準字體表');
   });
 
   it('works for documents which already are UTF-8', function() {
     var input = loadExample('utf8.with.meta.html');
     var output = convert(input, 'text/html');
     expect(output).to.contain('日本語');
+  });
+  
+  it('Replace charset from the original input', function() {
+    var input = loadExample('51242_54045.html');
+    var output = convert(input, 'text/html');
+    expect(output).to.contain('<meta http-equiv="Content-Type" content="text/html;utf-8" />');
   });
 });
 
