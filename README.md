@@ -1,4 +1,5 @@
 # html-encode
+
 ![Last version](https://img.shields.io/github/tag/Kikobeats/html-encode.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/Kikobeats/html-encode/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/html-encode)
 [![Coverage Status](https://img.shields.io/coveralls/Kikobeats/html-encode.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/html-encode)
