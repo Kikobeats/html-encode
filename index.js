@@ -15,10 +15,14 @@ module.exports = function ensureUTF8 (binaryBuffer, contentType) {
 }
 
 function getEncoding (content, contentType) {
-  return charset({'content-type': contentType}, content) || inferredEncoding(content) || 'utf8'
+  return (
+    charset({ 'content-type': contentType }, content) ||
+    inferredEncoding(content) ||
+    'utf8'
+  )
 }
 
-function inferredEncoding(content) {
-  var charset = jschardet.detect(content);
+function inferredEncoding (content) {
+  var charset = jschardet.detect(content)
   return charset && charset.encoding
 }
