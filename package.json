@@ -28,14 +28,15 @@
     "to-buffer": "~1.1.0"
   },
   "devDependencies": {
+    "chai": "latest",
     "coveralls": "latest",
     "git-dirty": "latest",
+    "got": "latest",
     "husky": "latest",
     "lint-staged": "latest",
     "mocha": "latest",
     "nyc": "latest",
     "prettier-standard": "latest",
-    "chai": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
@@ -56,15 +57,15 @@
     "test": "nyc mocha"
   },
   "license": "MIT",
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  },
   "lint-staged": {
     "*.js": [
       "precommit-lint",
       "git add"
+    ]
+  },
+  "standard": {
+    "env": [
+      "mocha"
     ]
   }
 }
