@@ -1,17 +1,20 @@
 'use strict'
 
 var jschardet = require('jschardet')
+var isBuffer = require('is-buffer')
 var iconv = require('iconv-lite')
 var charset = require('charset')
 
 var charsetRegex = /charset=["]*([^>"\s]+)/i
 
-module.exports = function ensureUTF8 (binaryBuffer, contentType) {
-  var encoding = getEncoding(binaryBuffer, contentType)
+module.exports = function ensureUTF8 (buffer, contentType) {
+  if (!isBuffer(buffer)) throw new TypeError('content should be a buffer.')
+
+  var encoding = getEncoding(buffer, contentType)
 
   return encoding === 'utf8'
-    ? binaryBuffer.toString('utf8')
-    : iconv.decode(binaryBuffer, encoding).replace(charsetRegex, 'utf-8')
+    ? buffer.toString('utf8')
+    : iconv.decode(buffer, encoding).replace(charsetRegex, 'utf-8')
 }
 
 function getEncoding (content, contentType) {
