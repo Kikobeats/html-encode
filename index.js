@@ -1,31 +1,28 @@
 'use strict'
 
-var jschardet = require('jschardet')
-var isBuffer = require('is-buffer')
-var iconv = require('iconv-lite')
-var charset = require('charset')
+const jschardet = require('jschardet')
+const isBuffer = require('is-buffer')
+const iconv = require('iconv-lite')
+const charset = require('charset')
 
-var charsetRegex = /charset=["]*([^>"\s]+)/i
+const REGEX_CHARSET = /charset=["]*([^>"\s]+)/i
 
-module.exports = function ensureUTF8 (buffer, contentType) {
-  if (!isBuffer(buffer)) throw new TypeError('content should be a buffer.')
-
-  var encoding = getEncoding(buffer, contentType)
-
-  return encoding === 'utf8'
-    ? buffer.toString('utf8')
-    : iconv.decode(buffer, encoding).replace(charsetRegex, 'utf-8')
+const inferredEncoding = content => {
+  const charset = jschardet.detect(content)
+  return charset && charset.encoding
 }
 
-function getEncoding (content, contentType) {
-  return (
+module.exports = targetEncoding => {
+  if (!targetEncoding) throw new TypeError('Need to provide a target encoding.')
+
+  const getEncoding = (content, contentType) =>
     charset({ 'content-type': contentType }, content) ||
     inferredEncoding(content) ||
-    'utf8'
-  )
-}
+    targetEncoding
 
-function inferredEncoding (content) {
-  var charset = jschardet.detect(content)
-  return charset && charset.encoding
+  return (buffer, contentType) => {
+    if (!isBuffer(buffer)) throw new TypeError('content should be a buffer.')
+    const encoding = getEncoding(buffer, contentType)
+    return iconv.decode(buffer, encoding).replace(REGEX_CHARSET, targetEncoding)
+  }
 }

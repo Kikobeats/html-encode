@@ -1,24 +1,28 @@
 {
   "name": "html-to-utf8",
-  "description": "Convert html documents of arbitrary encoding to UTF-8",
-  "homepage": "https://github.com/spect88/html-to-utf8#readme",
-  "version": "0.1.0",
+  "description": "A Node.js library for converting HTML documents of arbitrary encoding into a target encoding (utf8, utf16, etc).",
+  "homepage": "https://documentup.com/Kikobeats/html-encode",
+  "version": "0.0.0",
   "main": "index.js",
   "author": {
-    "email": "spect88@gmail.com",
-    "name": "Tomasz Szczęśniak-Szlagowski"
+    "name": "Kiko Beats",
+    "url": "https://github.com/Kikobeats"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spect88/html-to-utf8.git"
+    "url": "git+https://github.com/kikobeats/html-encode.git"
   },
   "bugs": {
-    "url": "https://github.com/spect88/html-to-utf8/issues"
+    "url": "https://github.com/kikobeats/html-encode/issues"
   },
   "keywords": [
     "encoding",
+    "encode",
+    "arbitrary",
+    "generic",
     "html",
-    "utf8"
+    "utf8",
+    "utf16"
   ],
   "dependencies": {
     "charset": "~1.0.1",

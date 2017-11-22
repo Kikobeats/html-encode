@@ -1,31 +1,37 @@
-# html-to-utf8
+# html-encode
+![Last version](https://img.shields.io/github/tag/Kikobeats/html-encode.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/Kikobeats/html-encode/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/html-encode)
+[![Coverage Status](https://img.shields.io/coveralls/Kikobeats/html-encode.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/html-encode)
+[![Dependency status](https://img.shields.io/david/Kikobeats/html-encode.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-encode)
+[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/html-encode.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-encode#info=devDependencies)
+[![NPM Status](https://img.shields.io/npm/dm/html-encode.svg?style=flat-square)](https://www.npmjs.org/package/html-encode)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-A Node.js library for converting HTML documents of arbitrary encoding to UTF-8.
+> A Node.js library for converting HTML documents of arbitrary encoding into a target encoding (utf8, utf16, etc).
 
-### Installation
+### Install
 
-```shell
-npm install html-to-utf8
+```bash
+$ npm install html-encode
 ```
 
 ### Usage
 
-```javascript
-var request = require('request')
-var toUTF8 = require('html-to-utf8')
+```js
+'use strict'
 
-request({
-  url: 'http://www.rakuten.co.jp',
-  encoding: null // stop request from decoding response
-}, function (err, resp, buffer) {
-  if (err) {
-    console.error(err.stack)
-    return
-  }
+const got = require('got')
+const toUTF8 = require('html-encode')('utf-8')
+const url = process.argv[2]
 
-  var htmlInUTF8 = toUTF8(buffer, resp.headers['content-type'])
-})
+;(async () => {
+  const { body: buffer, headers } = await got(url, { encoding: null })
+  const str = toUTF8(buffer, headers['content-type'])
+  console.log(str)
+})()
 ```
+
+See more at [examples](/examples).
 
 ### License
 
