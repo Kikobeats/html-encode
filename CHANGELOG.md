@@ -1,3 +1,10 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2018-01-29)
+
+* fix(package): update is-buffer to version 2.0.0 ([cd53885](https://github.com/kikobeats/html-encode/commit/cd53885))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2017-11-22)
 
