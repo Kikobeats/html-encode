@@ -26,11 +26,9 @@
   ],
   "dependencies": {
     "charset": "~1.0.1",
-    "he": "~1.2.0",
     "iconv-lite": "~0.4.19",
     "is-buffer": "~2.0.0",
-    "jschardet": "~1.6.0",
-    "to-buffer": "~1.1.0"
+    "jschardet": "~1.6.0"
   },
   "devDependencies": {
     "chai": "latest",
