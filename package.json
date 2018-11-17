@@ -2,7 +2,7 @@
   "name": "html-encode",
   "description": "A Node.js library for converting HTML documents of arbitrary encoding into a target encoding (utf8, utf16, etc).",
   "homepage": "https://documentup.com/Kikobeats/html-encode",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "index.js",
   "author": {
     "name": "Kiko Beats",

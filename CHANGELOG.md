@@ -1,3 +1,10 @@
+<a name="2.1.1"></a>
+## 2.1.1 (2018-11-17)
+
+* Avoid rewrite html charset ([9159dd2](https://github.com/kikobeats/html-encode/commit/9159dd2))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2018-11-17)
 
