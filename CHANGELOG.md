@@ -1,3 +1,11 @@
+<a name="2.1.0"></a>
+# 2.1.0 (2018-11-17)
+
+* Ensure to resolve base64 entities ([227b24a](https://github.com/kikobeats/html-encode/commit/227b24a))
+* Update package.json ([0806424](https://github.com/kikobeats/html-encode/commit/0806424))
+
+
+
 <a name="2.0.1"></a>
 ## 2.0.1 (2018-01-29)
 
