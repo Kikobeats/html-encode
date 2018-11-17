@@ -4,7 +4,7 @@ const { expect } = require('chai')
 const path = require('path')
 const fs = require('fs')
 
-const toUTF8 = require('../index')('utf-8')
+const toUTF8 = require('..')('utf-8')
 
 describe('Encoding Converter', function () {
   it('properly decodes Shift-JIS html documents', function () {
@@ -41,6 +41,34 @@ describe('Encoding Converter', function () {
 
     expect(output).to.contain(
       '<meta http-equiv="Content-Type" content="text/html;utf-8" />'
+    )
+  })
+
+  it.only('Decode Base64', function () {
+    const buffer = loadExample('base64.html')
+    const output = toUTF8(buffer)
+    expect(output.trim()).to.deep.equal(
+      `
+    <html>
+
+<head></head>
+
+<body>
+  <pre style="word-wrap: break-word; white-space: pre-wrap;"><!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://httpbin-org.herokuapp.com/redirect/3"></a>
+  </body>
+  </html></pre>
+</body>
+
+</html>`.trim()
     )
   })
 })
