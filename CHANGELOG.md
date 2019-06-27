@@ -1,3 +1,49 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.1.2](https://github.com/kikobeats/html-encode/compare/v0.1.0...v2.1.2) (2019-06-27)
+
+
+### Bug Fixes
+
+* **package:** update iconv-lite to version 0.5.0 ([d93f709](https://github.com/kikobeats/html-encode/commit/d93f709))
+
+
+### Build System
+
+* add missing dependency ([bec9cdb](https://github.com/kikobeats/html-encode/commit/bec9cdb))
+* ignore envrc ([207bf9e](https://github.com/kikobeats/html-encode/commit/207bf9e))
+* tweaks ([1ef0732](https://github.com/kikobeats/html-encode/commit/1ef0732))
+* update dependencies ([7396c7d](https://github.com/kikobeats/html-encode/commit/7396c7d))
+
+
+
+### 2.1.1 (2018-11-17)
+
+
+
+## 2.1.0 (2018-11-17)
+
+
+
+### 2.0.1 (2018-01-29)
+
+
+### Bug Fixes
+
+* **package:** update is-buffer to version 2.0.0 ([cd53885](https://github.com/kikobeats/html-encode/commit/cd53885))
+
+
+
+## 2.0.0 (2017-11-22)
+
+
+
+## 1.0.0 (2017-11-22)
+
+
+
 <a name="2.1.1"></a>
 ## 2.1.1 (2018-11-17)
 
@@ -71,6 +117,3 @@
 # 0.1.0 (2015-10-07)
 
 * Initial commit ([3495eea](https://github.com/kikobeats/html-encode/commit/3495eea))
-
-
-
