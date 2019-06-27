@@ -27,8 +27,8 @@
   "dependencies": {
     "charset": "~1.0.1",
     "iconv-lite": "~0.5.0",
-    "is-buffer": "~2.0.0",
-    "jschardet": "~1.6.0"
+    "is-buffer": "~2.0.3",
+    "jschardet": "~2.1.0"
   },
   "devDependencies": {
     "chai": "latest",
@@ -41,7 +41,14 @@
     "nyc": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
-    "standard-markdown": "latest"
+    "standard-markdown": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "conventional-github-releaser": "latest",
+    "finepack": "latest",
+    "git-authors-cli": "latest",
+    "npm-check-updates": "latest",
+    "ci-publish": "latest"
   },
   "files": [
     "index.js"
@@ -55,12 +62,20 @@
     "pretest": "npm run lint",
     "pretty": "prettier-standard {core,test,bin}/**/*.js",
     "start": "node index.js",
-    "test": "nyc mocha"
+    "test": "nyc mocha",
+    "postrelease": "npm run release:tags && npm run release:github && ci-publish",
+    "prerelease": "npm run update:check",
+    "release:github": "conventional-github-releaser -p angular",
+    "release:tags": "git push --follow-tags origin HEAD:master",
+    "release": "standard-version -a",
+    "update:check": "ncu -- --error-level 2",
+    "update": "ncu -u"
   },
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -82,6 +97,11 @@
   "standard": {
     "env": [
       "mocha"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   }
 }
