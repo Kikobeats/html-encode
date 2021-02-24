@@ -3,10 +3,7 @@
 ![Last version](https://img.shields.io/github/tag/Kikobeats/html-encode.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/Kikobeats/html-encode/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/html-encode)
 [![Coverage Status](https://img.shields.io/coveralls/Kikobeats/html-encode.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/html-encode)
-[![Dependency status](https://img.shields.io/david/Kikobeats/html-encode.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-encode)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/html-encode.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-encode#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/html-encode.svg?style=flat-square)](https://www.npmjs.org/package/html-encode)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
 > A Node.js library for converting HTML documents of arbitrary encoding into a target encoding (utf8, utf16, etc).
 
