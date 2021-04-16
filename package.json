@@ -28,7 +28,7 @@
     "charset": "~1.0.1",
     "iconv-lite": "~0.6.2",
     "is-buffer": "~2.0.5",
-    "jschardet": "~2.3.0"
+    "jschardet": "~3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
