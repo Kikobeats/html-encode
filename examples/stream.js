@@ -1,7 +1,7 @@
 'use strict'
 
-var got = require('got')
-var toUTF8 = require('..')('utf-8')
+const got = require('got')
+const toUTF8 = require('..')('utf-8')
 
 const url = process.argv[2]
 
