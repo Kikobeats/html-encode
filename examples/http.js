@@ -12,5 +12,5 @@ const encode = async () => {
 }
 
 encode(url)
-  .then(content => console.log(content) && process.exit(0))
-  .catch(err => console.error(err) && process.exit(1))
+  .then(content => console.log(content) || process.exit())
+  .catch(error => console.error(error) || process.exit(1))

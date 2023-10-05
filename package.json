@@ -1,7 +1,7 @@
 {
   "name": "html-encode",
   "description": "A Node.js library for converting HTML documents of arbitrary encoding into a target encoding (utf8, utf16, etc).",
-  "homepage": "https://nicedoc.io/Kikobeats/html-encode",
+  "homepage": "https://github.com/Kikobeats/html-encode",
   "version": "2.1.6",
   "main": "index.js",
   "author": {
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
+    "@ksmithut/prettier-standard": "latest",
     "chai": "latest",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
@@ -45,7 +46,6 @@
     "nano-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
-    "prettier-standard": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
@@ -80,7 +80,8 @@
   },
   "nano-staged": {
     "*.js": [
-      "prettier-standard"
+      "prettier-standard",
+      "standard --fix"
     ],
     "*.md": [
       "standard-markdown"
