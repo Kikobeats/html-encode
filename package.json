@@ -34,18 +34,15 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@ksmithut/prettier-standard": "latest",
+    "ava": "latest",
+    "c8": "latest",
     "chai": "latest",
     "ci-publish": "latest",
-    "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
     "github-generate-release": "latest",
-    "got": "11",
-    "mocha": "latest",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
-    "nyc": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
@@ -56,6 +53,7 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
+    "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "dev": "nodemon --exec \"npm start\" -e \"js\"",
     "lint": "standard-markdown README.md && standard",
@@ -68,7 +66,7 @@
     "release:github": "github-generate-release",
     "release:tags": "git push --follow-tags origin HEAD:master",
     "start": "node index.js",
-    "test": "nyc mocha",
+    "test": "c8 ava",
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
   },
@@ -93,10 +91,5 @@
   "simple-git-hooks": {
     "commit-msg": "npx commitlint --edit",
     "pre-commit": "npx nano-staged"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
   }
 }
