@@ -1,7 +1,6 @@
 # html-encode
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/html-encode.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/Kikobeats/html-encode/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/html-encode)
 [![Coverage Status](https://img.shields.io/coveralls/Kikobeats/html-encode.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/html-encode)
 [![NPM Status](https://img.shields.io/npm/dm/html-encode.svg?style=flat-square)](https://www.npmjs.org/package/html-encode)
 
@@ -31,6 +30,9 @@ const url = process.argv[2]
 
 See more at [examples](/examples).
 
-### License
+## License
 
-The code is available under [MIT license](LICENSE).
+**html-encode** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/html-encode/blob/master/LICENSE.md) License.<br>
+Authored and maintained by Kiko Beats with help from [contributors](https://github.com/Kikobeats/html-encode/contributors).
+
+> [kikobeats.com](https://kikobeats.com) · GitHub [Kiko Beats](https://github.com/Kikobeats) · Twitter [@Kikobeats](https://twitter.com/Kikobeats)
