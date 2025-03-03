@@ -10,7 +10,7 @@ let contentType
 
 got
   .stream(url)
-  .on('response', res => (contentType = res.headers['content-type']))
+  .on('response', res => (contentType = res.headers['content-type']?.split(';')[0].toLowerCase()))
   .on('data', buffer => (str += toUTF8(buffer, contentType)))
   .on('end', function () {
     console.log(str)

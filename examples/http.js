@@ -7,7 +7,7 @@ const url = process.argv[2]
 
 const encode = async () => {
   const { body: buffer, headers } = await got(url, { responseType: 'buffer' })
-  const str = toUTF8(buffer, headers['content-type'])
+  const str = toUTF8(buffer, headers['content-type']?.split(';')[0].toLowerCase())
   return str
 }
 
