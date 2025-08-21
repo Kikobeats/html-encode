@@ -36,9 +36,9 @@
   ],
   "dependencies": {
     "charset": "~1.0.1",
-    "iconv-lite": "~0.6.3",
+    "iconv-lite": "~0.7.0",
     "is-buffer": "~2.0.5",
-    "jschardet": "~3.1.0"
+    "jschardet": "~3.1.4"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -54,7 +54,6 @@
     "nano-staged": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
-    "standard-markdown": "latest",
     "standard-version": "latest"
   },
   "files": [
@@ -65,7 +64,7 @@
     "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "dev": "nodemon --exec \"npm start\" -e \"js\"",
-    "lint": "standard-markdown README.md && standard",
+    "lint": "standard",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "prelint": "npm run pretty",
     "pretest": "npm run lint",
@@ -91,9 +90,6 @@
     "*.js": [
       "prettier-standard",
       "standard --fix"
-    ],
-    "*.md": [
-      "standard-markdown"
     ],
     "package.json": [
       "finepack"
