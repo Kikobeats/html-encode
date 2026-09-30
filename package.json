@@ -41,7 +41,7 @@
     "charset": "~1.0.1",
     "iconv-lite": "~0.7.0",
     "is-buffer": "~2.0.5",
-    "jschardet": "~3.1.4"
+    "jschardet": "~4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -68,9 +68,7 @@
     "dev": "nodemon --exec \"npm start\" -e \"js\"",
     "lint": "standard",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
-    "prelint": "npm run pretty",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard {core,test,bin}/**/*.js",
     "release": "standard-version -a",
     "release:github": "github-generate-release",
     "release:tags": "git push --follow-tags origin HEAD:master",
