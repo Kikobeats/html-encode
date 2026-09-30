@@ -1,13 +1,15 @@
 'use strict'
 
-const got = require('got')
 const toUTF8 = require('..')('utf-8')
+
+const contentType = require('@kikobeats/content-type')
+const got = require('got')
 
 const url = process.argv[2]
 
 const encode = async () => {
   const { body: buffer, headers } = await got(url, { responseType: 'buffer' })
-  const str = toUTF8(buffer, headers['content-type']?.split(';')[0].toLowerCase())
+  const str = toUTF8(buffer, contentType(headers['content-type']))
   return str
 }
 
