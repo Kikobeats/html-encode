@@ -5,7 +5,7 @@ const isBuffer = require('is-buffer')
 const iconv = require('iconv-lite')
 const charset = require('charset')
 
-// jschardet 4 reports chardet labels; some (notably UTF-8-SIG) are not iconv-lite names.
+// jschardet 4 names UTF-8 with a BOM `UTF-8-SIG`. That is UTF-8; iconv-lite has no such codec.
 const ICONV_ALIASES = {
   'utf-8-sig': 'utf-8'
 }
@@ -15,10 +15,9 @@ const inferredEncoding = content => {
   return detected && detected.encoding
 }
 
-const resolveEncoding = (encoding, fallback) => {
-  if (!encoding) return fallback
-  const mapped = ICONV_ALIASES[encoding.toLowerCase()] || encoding
-  return iconv.encodingExists(mapped) ? mapped : fallback
+const toIconvName = encoding => {
+  if (!encoding) return encoding
+  return ICONV_ALIASES[encoding.toLowerCase()] || encoding
 }
 
 module.exports = targetEncoding => {
@@ -27,10 +26,9 @@ module.exports = targetEncoding => {
   }
 
   const getEncoding = (content, contentType) =>
-    resolveEncoding(
-      charset({ 'content-type': contentType }, content) || inferredEncoding(content),
-      targetEncoding
-    )
+    toIconvName(charset({ 'content-type': contentType }, content)) ||
+    toIconvName(inferredEncoding(content)) ||
+    targetEncoding
 
   return (buffer, contentType) => {
     if (!isBuffer(buffer)) throw new TypeError('content should be a buffer.')

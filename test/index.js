@@ -42,8 +42,8 @@ test('UTF-8 with BOM and no charset hint', t => {
   t.false(output.startsWith('\uFEFF'))
 })
 
-test('falls back when the detected encoding is unknown to iconv', t => {
+test('throws when the declared charset is unknown to iconv', t => {
   const buffer = Buffer.from('<html>hello</html>')
-  const output = toUTF8(buffer, 'text/html; charset=iso-2022-jp')
-  t.true(output.includes('hello'))
+  const error = t.throws(() => toUTF8(buffer, 'text/html; charset=iso-2022-jp'))
+  t.true(error.message.includes('iso-2022-jp'))
 })
