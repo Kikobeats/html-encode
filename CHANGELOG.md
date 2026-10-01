@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.17 (2026-10-01)
+
+
+### Bug Fixes
+
+* do not crash on UTF-8 BOM documents after jschardet 4 ([#31](https://github.com/kikobeats/html-encode/issues/31)) ([a5f8b65](https://github.com/kikobeats/html-encode/commit/a5f8b65536897f92819e2ee9d21ba33ada25c8d3))
+
 ### 2.1.16 (2026-09-30)
 
 ### 2.1.15 (2026-04-14)

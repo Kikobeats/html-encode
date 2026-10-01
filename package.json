@@ -2,7 +2,7 @@
   "name": "html-encode",
   "description": "Convert HTML documents of arbitrary encoding into a target charset such as UTF-8 or UTF-16.",
   "homepage": "https://github.com/Kikobeats/html-encode",
-  "version": "2.1.16",
+  "version": "2.1.17",
   "main": "index.js",
   "author": {
     "name": "Kiko Beats",
