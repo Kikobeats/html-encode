@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.18 (2026-10-14)
+
+
+### Bug Fixes
+
+* fall back when inferred encoding is unknown to iconv ([#32](https://github.com/kikobeats/html-encode/issues/32)) ([dbf2733](https://github.com/kikobeats/html-encode/commit/dbf2733d5637729d2295522733c6e5e14ea29b6e))
+
 ### 2.1.17 (2026-10-01)
 
 
