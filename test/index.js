@@ -47,3 +47,25 @@ test('throws when the declared charset is unknown to iconv', t => {
   const error = t.throws(() => toUTF8(buffer, 'text/html; charset=iso-2022-jp'))
   t.true(error.message.includes('iso-2022-jp'))
 })
+
+test('falls back when inferred encoding is unknown to iconv', t => {
+  // ISO-2022-JP ESC sequences: jschardet is confident; iconv-lite has no codec.
+  const buffer = Buffer.concat([
+    Buffer.from('<html><body>'),
+    Buffer.from([0x1b, 0x24, 0x42, 0x46, 0x7c, 0x4b, 0x5c, 0x38, 0x6c, 0x1b, 0x28, 0x42]),
+    Buffer.from('</body></html>')
+  ])
+  const output = toUTF8(buffer, 'text/html')
+  t.true(output.includes('<html>'))
+  t.true(output.includes('</html>'))
+})
+
+test('falls back when jschardet guesses an unsupported encoding', t => {
+  const iconv = require('iconv-lite')
+  const buffer = iconv.encode(
+    '<html><body>' + 'あ'.repeat(200) + '</body></html>',
+    'EUC-JP'
+  )
+  const output = toUTF8(buffer, 'text/html')
+  t.true(output.includes('<html>'))
+})
