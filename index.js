@@ -12,7 +12,10 @@ const ICONV_ALIASES = {
 
 const inferredEncoding = content => {
   const detected = jschardet.detect(content)
-  return detected && detected.encoding
+  const encoding = detected && toIconvName(detected.encoding)
+  // jschardet 4 can name codecs iconv-lite does not ship (ISO-2022-JP, cp500, …).
+  // Skip those so the caller falls back to the target encoding instead of throwing.
+  if (encoding && iconv.encodingExists(encoding)) return encoding
 }
 
 const toIconvName = encoding => {
@@ -27,7 +30,7 @@ module.exports = targetEncoding => {
 
   const getEncoding = (content, contentType) =>
     toIconvName(charset({ 'content-type': contentType }, content)) ||
-    toIconvName(inferredEncoding(content)) ||
+    inferredEncoding(content) ||
     targetEncoding
 
   return (buffer, contentType) => {
