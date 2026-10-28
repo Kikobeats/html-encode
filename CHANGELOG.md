@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.19 (2026-10-28)
+
+
+### Bug Fixes
+
+* declare the real minimum Node.js version ([#34](https://github.com/kikobeats/html-encode/issues/34)) ([9c06a61](https://github.com/kikobeats/html-encode/commit/9c06a6174472e3bed939108deda0cb8bd0264d20))
+
 ### 2.1.18 (2026-10-14)
 
 
